@@ -1,32 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.App {
+* {
+  margin: 0;
+}
+
+.Publish {
   text-align: center;
 }
 
-.homepage-campaign {
-  background-color: #ff5a5a;
-  padding: 7px 0 7px 0;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.header {
+.page-header {
   margin: 60px auto 30px auto;
   color: #181818;
   font-size: 28px;
   font-weight: 200;
 }
 
-.item-list {
-  width: 90%;
-  justify-content: center;
+.wrapper {
   margin: 0 auto 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  width: 70%;
 }
 
-.publish-page {
+.input-section {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.input-section input {
+  font-size: 18px;
+  width: 350px;
+  border-radius: 7px;
+  border: 1px solid #d3d3d3;
+  padding: 10px 20px;
+  margin: 0 0 10px 0;
+}
+
+.image-section {
+  background-color: #d3d3d3;
+}
+
+.image-section img {
+  background-color: #181818;
+  width: 350px;
+  height: 400px;
+}
+
+.submit-btn {
   background-color: #181818;
   font-size: 14px;
   font-weight: 600;
@@ -34,9 +54,4 @@
   border-radius: 100px;
   padding: 14px 28px;
   margin: 50px 0 100px 0;
-}
-
-.thank-you {
-  margin: 0 auto 100px auto;
-  width: 30%;
 }

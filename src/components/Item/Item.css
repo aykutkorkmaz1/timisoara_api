@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.Item {
+    width: 250px;
+    margin: 20px;
+}
+
+.Item img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.item-details {
+    padding: 7px 0 0 0;
+    text-align: left;
+}
+
+.item-name {
+    width: auto;
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+}
+
+.item-price {
+    width: auto;
+    font-size: 22px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+}
