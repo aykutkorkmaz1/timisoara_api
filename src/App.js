@@ -3,29 +3,13 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Item from './components/Item/Item';
-import axios from 'axios';
+import { useMethod_GET } from './ApiServices';
 
 function App() {
 
-  const URL_PARAM = "products"
-  const URL = `https://65ffe1bcdf565f1a61456e41.mockapi.io/api/v1/products/${URL_PARAM}`
-  const [api, setApi] = useState([]);
+  const { data, error } = useMethod_GET();
 
-  console.log("API", api)
-
-  useEffect(() => {
-    getAPI();
-  }, []);
-
-  const getAPI = async () => {
-    try {
-      const response = await axios.get(URL);
-      setApi(response.data);
-    } catch (error) {
-        console.error('GET error:', error)
-    }
-  }
-
+  console.log('DATA', data)
 
   return (
     <div className="App">
@@ -36,18 +20,20 @@ function App() {
       </div>
 
       <div className='header'>
-        PRODUCTS
+        <p className='header-text'>PRODUCTS</p>
+        <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/publish'><button className='publish-page'>PUBLISH PRODUCT</button></Link>
       </div>
 
-      <div className='item-list'>
-        {
-          api.map(api => (
-            <Item key={api.id} item={api} />
-          ))
-        }
-      </div>
-      <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/publish'><button className='publish-page'>PUBLISH PRODUCT</button></Link>
-      <p className='thank-you'>Made by Aykut. Thanks to Metecan, who has provided indescribable benefits to my career.</p>
+      {
+        data ? (
+          <div className='item-list'>
+              {data.map(data => (
+                <Item key={data.id} item={data} />
+              ))}
+          </div>
+        ) : ( <p>LOADING</p> )
+      }
+      <p className='thank-you'>Made by Aykut. Thanks to @metecan, who has provided indescribable benefits to my career.</p>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {Cog} from 'lucide-react';
+import {Trash2} from 'lucide-react';
 import {Star} from 'lucide-react';
 import { ArrowUpDown } from 'lucide-react';
 import {MessageCircleQuestion} from 'lucide-react';
@@ -11,6 +13,7 @@ import {Truck} from 'lucide-react';
 import {Package} from 'lucide-react';
 import {ScanEye} from 'lucide-react';
 import {ChevronsDown} from 'lucide-react';
+import classNames from 'classnames';
 
 function Product() {
 
@@ -36,11 +39,14 @@ function Product() {
   return (
     <div className="Product">
       <Navbar />
-      <div className='wrapper'>
+      <div className='wrapper-product'>
         
-        <div className='image-section'>
+        <div className='image-section-product'>
           <img src={api.imageURL} />
-          <button>Delete Item</button>
+          <div className='item-actions'>
+            <button className='delete-item'><Trash2 color="#181818" size={22} strokeWidth={1.5} /></button>
+            <button className='edit-item'><Cog color="#181818" size={22} strokeWidth={1.5} /></button>
+          </div>
         </div>
 
         <div className='details-section'>
@@ -73,10 +79,15 @@ function Product() {
               <div className='product-size-select'>
                 <p>Size: {api.size}</p>
                 <div className='size-select'>
-                  <p className='product-size-passive'>M</p>
-                  <p className='product-size-active'>L</p>
-                  <p className='product-size-passive'>XL</p>
-                  <p className='product-size-passive'>XXL</p>
+                  <p className = {
+                    classNames(api.size === 'S' ? 'product-size-active' : 'product-size-passive')
+                  }>S</p>
+                  <p className = {
+                    classNames(api.size === 'M' ? 'product-size-active' : 'product-size-passive')
+                  }>M</p>
+                  <p className = {
+                    classNames(api.size === 'L' ? 'product-size-active' : 'product-size-passive')
+                  }>L</p>
                 </div>
               </div>
             </div>
